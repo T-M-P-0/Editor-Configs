@@ -1,0 +1,152 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Client\\UI.Client.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Client\\UI.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Client\\UI.Client.csproj",
+        "projectName": "UI.Client",
+        "projectPath": "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Client\\UI.Client.csproj",
+        "packagesPath": "C:\\Users\\tompi\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tompi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Shared\\UI.Shared.csproj": {
+                "projectPath": "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Shared\\UI.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[7.0.3, 7.0.3]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Shared\\UI.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Shared\\UI.Shared.csproj",
+        "projectName": "UI.Shared",
+        "projectPath": "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Shared\\UI.Shared.csproj",
+        "packagesPath": "C:\\Users\\tompi\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\tompi\\Code\\Configs\\VisualStudioCode\\Web-Api-Blazor.config\\src\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tompi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

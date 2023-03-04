@@ -1,0 +1,126 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch and Debug Wasm",
+            "type": "blazorwasm",
+            "preLaunchTask": "build-wasm",
+            "request": "launch",
+            "url": "http://localhost:5260",
+            "cwd": "${workspaceFolder}/src/Client.StartUp",
+            "browser": "edge"
+        },
+        {
+            "name": "Watch Wasm",
+            "type": "coreclr",
+            "request": "launch",
+            "serverReadyAction": {
+                "action": "debugWithEdge",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "webRoot": "${workspaceFolder}/src/Client.Startup/wwwroot",
+                "killOnServerStop": false
+            },
+            //equest": "launch",
+            "cwd": "${workspaceFolder}/src/Client.Startup",
+            "program": "dotnet",
+            "args": [
+                "watch",
+                "--project",
+                ".",
+                "--verbose" // Let's us confirm browser connects with hot reload capabilities
+            ],
+            "preLaunchTask": "build-wasm" // Ensure we don't watch an unbuilt site
+        },
+        {
+            "name": "Attach to Wasm",
+            "type": "blazorwasm",
+            "request": "attach",
+            "cwd": "${workspaceFolder}/src/Client.StartUp",
+            "browser": "edge",
+            "url": "https://localhost:5260", // Tell launch where to find site
+            "timeout": 120000, // Allows time for the site to launch
+        },
+        {
+            "name": "Launch and Debug API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-api",
+              "launchBrowser": {
+                "enabled": false
+            },
+            "program": "${workspaceFolder}/src/API/bin/Debug/net7.0/API.dll",
+            "cwd": "${workspaceFolder}/src/API",
+            "serverReadyAction": {
+                "action": "debugWithEdge",
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/API/Views"
+            }
+        },
+        {
+            "name": "Watch API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-api", // Ensure we don't watch an unbuilt site
+            "program": "dotnet",
+            "cwd": "${workspaceFolder}/src/API",
+            "args": [
+                "watch",
+                "--verbose" // Let's us confirm browser connects with hot reload capabilities
+            ],
+            "launchBrowser": {
+                "enabled": true
+            },
+            "serverReadyAction": {
+                "action": "debugWithEdge",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s/swagger"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/API/Views"
+            }
+        },
+        {
+            "name": "Attach to API",
+            "type": "coreclr",
+            "request": "attach",
+        },
+        {
+            "name": "Launch to Edge",
+            "type": "msedge",
+            "request": "launch",
+            "url": "http://localhost:5260/*",
+            "webRoot": "${workspaceFolder}/src/Client/wwwroot"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Hot Reload And Debug WASM && API",
+            "configurations": [
+                "Launch and Debug API",
+                "Watch Wasm",
+                "Attach to Wasm",
+            ]
+        },
+        {
+            "name": "Hot Reload and Debug Wasm",
+            "configurations": [
+                "Watch Wasm",
+                "Attach to Wasm"
+            ]
+        },
+        {
+            "name": "Hot Reload and Debug API",
+            "configurations": [
+                "Watch API",
+                
+            ]
+        }
+    ]
+}
