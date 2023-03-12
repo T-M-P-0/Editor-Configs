@@ -6,30 +6,24 @@
             "type": "blazorwasm",
             "preLaunchTask": "build-wasm",
             "request": "launch",
-            "url": "http://localhost:5260",
+            "url": "https://localhost:5260",
             "cwd": "${workspaceFolder}/src/Client.StartUp",
-            "browser": "edge"
+            "browser": "edge",
+            "suppressMultipleSessionWarning": true,
         },
         {
             "name": "Watch Wasm",
             "type": "coreclr",
             "request": "launch",
-            "serverReadyAction": {
-                "action": "debugWithEdge",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
-                "webRoot": "${workspaceFolder}/src/Client.Startup/wwwroot",
-                "killOnServerStop": false
-            },
-            //equest": "launch",
             "cwd": "${workspaceFolder}/src/Client.Startup",
             "program": "dotnet",
             "args": [
                 "watch",
                 "--project",
                 ".",
-                "--verbose" // Let's us confirm browser connects with hot reload capabilities
+                "--verbose"
             ],
-            "preLaunchTask": "build-wasm" // Ensure we don't watch an unbuilt site
+            // "preLaunchTask": "build-wasm" 
         },
         {
             "name": "Attach to Wasm",
@@ -37,22 +31,21 @@
             "request": "attach",
             "cwd": "${workspaceFolder}/src/Client.StartUp",
             "browser": "edge",
-            "url": "https://localhost:5260", // Tell launch where to find site
-            "timeout": 120000, // Allows time for the site to launch
+            "url": "https://localhost:7035",
         },
         {
             "name": "Launch and Debug API",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build-api",
-              "launchBrowser": {
-                "enabled": false
-            },
             "program": "${workspaceFolder}/src/API/bin/Debug/net7.0/API.dll",
             "cwd": "${workspaceFolder}/src/API",
-            "serverReadyAction": {
-                "action": "debugWithEdge",
+            "launchBrowser": {
+                "enabled": false,
             },
+            "allowFastEvaluate": true,
+            "enableStepFiltering": true,
+            "justMyCode": true,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
@@ -72,12 +65,7 @@
                 "--verbose" // Let's us confirm browser connects with hot reload capabilities
             ],
             "launchBrowser": {
-                "enabled": true
-            },
-            "serverReadyAction": {
-                "action": "debugWithEdge",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
-                "uriFormat": "%s/swagger"
+                "enabled": false
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
@@ -91,22 +79,15 @@
             "type": "coreclr",
             "request": "attach",
         },
-        {
-            "name": "Launch to Edge",
-            "type": "msedge",
-            "request": "launch",
-            "url": "http://localhost:5260/*",
-            "webRoot": "${workspaceFolder}/src/Client/wwwroot"
-        }
     ],
     "compounds": [
         {
-            "name": "Hot Reload And Debug WASM && API",
+            "name": "Lauch and Debug API & Watch And Debug WASM",
             "configurations": [
                 "Launch and Debug API",
                 "Watch Wasm",
                 "Attach to Wasm",
-            ]
+            ],
         },
         {
             "name": "Hot Reload and Debug Wasm",
@@ -119,7 +100,6 @@
             "name": "Hot Reload and Debug API",
             "configurations": [
                 "Watch API",
-                
             ]
         }
     ]
