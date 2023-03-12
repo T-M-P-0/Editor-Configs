@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Kill Dotnet Process",
+            "type": "shell",
+            "command": "killall dotnet",
+            "problemMatcher": []
+        },
+    ]
+}

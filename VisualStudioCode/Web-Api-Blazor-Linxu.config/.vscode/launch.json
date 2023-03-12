@@ -1,0 +1,51 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch and Debug Standalone Blazor WebAssembly App",
+            "type": "blazorwasm",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/src/UI",
+            "url": "http://localhost:5104",
+            "suppressMultipleSessionWarning": true,
+            "browser": "edge",
+            "postDebugTask": "Kill Dotnet Process"
+        },
+        {
+            "name": "Watch Wasm",
+            "type": "coreclr",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/src/UI",
+            "program": "dotnet",
+            "args": [
+                "watch",
+                "--verbose"
+            ],
+            "postDebugTask": "Kill Dotnet Process"
+            // "preLaunchTask": "build-wasm" 
+        },
+        {
+            "name": "Attach to Wasm",
+            "type": "blazorwasm",
+            "request": "attach",
+            "cwd": "${workspaceFolder}/src/UI",
+            "browser": "edge",
+            "url": "http://localhost:5104",
+            "postDebugTask": "Kill Dotnet Process"
+        },
+    ],
+    "compounds": [
+        {
+            "name": "Lauch and Debug API & Watch And Debug WASM",
+            "configurations": [],
+        },
+        {
+            "name": "Hot Reload and Debug Wasm",
+            "configurations": [
+                "Watch Wasm",
+                "Attach to Wasm"
+            ],
+            "stopAll": true
+        },
+    ]
+}

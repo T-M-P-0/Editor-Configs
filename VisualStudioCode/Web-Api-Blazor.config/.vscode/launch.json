@@ -6,16 +6,16 @@
             "type": "blazorwasm",
             "preLaunchTask": "build-wasm",
             "request": "launch",
-            "url": "https://localhost:5260",
+            "url": "https://localhost:8000",
             "cwd": "${workspaceFolder}/src/Client.StartUp",
-            "browser": "edge",
             "suppressMultipleSessionWarning": true,
+            "browser": "chrome"
         },
         {
             "name": "Watch Wasm",
             "type": "coreclr",
             "request": "launch",
-            "cwd": "${workspaceFolder}/src/Client.Startup",
+            "cwd": "${workspaceFolder}/src/Client.StartUp",
             "program": "dotnet",
             "args": [
                 "watch",
@@ -30,8 +30,8 @@
             "type": "blazorwasm",
             "request": "attach",
             "cwd": "${workspaceFolder}/src/Client.StartUp",
-            "browser": "edge",
-            "url": "https://localhost:7035",
+            "browser": "chrome",
+            "url": "https://localhost:8000",
         },
         {
             "name": "Launch and Debug API",
